@@ -1,0 +1,26 @@
+/************************************************************
+************************************************************/
+■
+同名のscriptはNG.
+なので、"OSCController.cs"は、それぞれ、"OSCController_0.cs"、"OSCController_1.cs"などとする。
+
+■
+server id、client idは、それぞれ、一意である必要がある。
+(server idとclient idで同じkeyがあるのはOK)
+例えば、
+	OSCController_0.cs
+		public string serverId = "oF_0";
+		public string clientId = "oF_0";
+		
+	OSCController_1.cs
+		public string serverId = "oF_1";
+		public string clientId = "oF_1";
+		
+としなければならない。
+
+otherwise...
+	an element with the same key already exists in the dictionary.
+と言われる。
+OSCHandler.csのInit()の先で、dictionary登録している所だと思う。
+
+
